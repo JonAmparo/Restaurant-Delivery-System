@@ -23,6 +23,24 @@ public class ClientBean {
 		this.phone = phone;
 	}
 
+	public ClientBean(String id, String username, String password, String confirmPassword, String lastName,
+			String firstName, String address, String email, String phone) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.confirmPassword = confirmPassword;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+	}
+
+	public String toString() {
+		return this.id + " : " + this.lastName + " " + this.firstName + ", " + this.address + ", " + this.email + ", "
+				+ this.phone;
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -148,7 +166,5 @@ public class ClientBean {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
 
 }

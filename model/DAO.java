@@ -1,15 +1,42 @@
 package model;
 
-public class DAO {
+import java.util.ArrayList;
+/*
+ * DAO = Data Access Object
+*/
+public class ClientDAO {
 
-	private DAO() {
-		this.createNewClient(new ClientBean("Murdaro", "123", "123", "Amparo", "Jonathan", "3600 Avenue Du Parc",
-				"JonathanAmparo2@live.com", "301-999-6666"));
-	}
-
+	// Clients
 	public void createNewClient(ClientBean client) {
-		int id = DTO.clientList.size(); // Gets size and increments id #
+		int id = DTO.getInstance().getClientList().size();
 		client.setId(id + "");
-		DTO.clientList.add(client);
+		DTO.getInstance().getClientList().add(client);
 	}
+	
+	public void editClient(ClientBean client, int id) {
+		DTO.getInstance().getClientList().set(id, client);
+	}
+	
+	public void deleteClient(int id) {
+		DTO.getInstance().getClientList().remove(id);
+	}
+	
+	public ArrayList<ClientBean> getAllClients() {
+		return DTO.getInstance().getClientList();
+	}
+	
+	public ClientBean getSingleClient(int id) {
+		return DTO.getInstance().getClientList().get(id);
+	}
+	
+	// Users
+	
+	// Restaurater
+	
+	// Manager
+	
+	// Menu
+	
+	// Restaurant
+	
 }

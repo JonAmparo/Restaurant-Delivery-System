@@ -116,6 +116,9 @@ public class Login extends JFrame {
 		btnQuit.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnQuit.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btn_panel.add(btnQuit);
+		
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

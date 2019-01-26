@@ -24,7 +24,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.CompoundBorder;
 
-public class RestaurateurMarkAccept extends JFrame {
+public class RestaurateurViewOrder extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfDeliveryDate;
@@ -38,7 +38,7 @@ public class RestaurateurMarkAccept extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RestaurateurMarkAccept frame = new RestaurateurMarkAccept();
+					RestaurateurViewOrder frame = new RestaurateurViewOrder();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,8 +50,8 @@ public class RestaurateurMarkAccept extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RestaurateurMarkAccept() {
-		setTitle("Restaurateur - Ready Order | Restuarant Delivery System");
+	public RestaurateurViewOrder() {
+		setTitle("Restaurateur Menu | Restuarant Delivery System");
 		setFont(new Font("Arial", Font.PLAIN, 12));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 800);
@@ -90,14 +90,14 @@ public class RestaurateurMarkAccept extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JList listRestaurants = new JList();
-		listRestaurants.setBorder(new CompoundBorder());
-		listRestaurants.setBounds(77, 70, 359, 376);
-		contentPane.add(listRestaurants);
+		JList list = new JList();
+		list.setBorder(new CompoundBorder());
+		list.setBounds(77, 70, 359, 376);
+		contentPane.add(list);
 		
-		JLabel lblNewLabel = new JLabel("Restauratuers Orders");
+		JLabel lblNewLabel = new JLabel("View Orders");
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNewLabel.setBounds(402, 0, 211, 62);
+		lblNewLabel.setBounds(430, 0, 119, 62);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Select");
@@ -139,9 +139,9 @@ public class RestaurateurMarkAccept extends JFrame {
 		lblMealOrder.setBounds(67, 500, 113, 26);
 		contentPane.add(lblMealOrder);
 		
-		JList listMealInOrder = new JList();
-		listMealInOrder.setBounds(66, 524, 359, 185);
-		contentPane.add(listMealInOrder);
+		JList list_2 = new JList();
+		list_2.setBounds(66, 524, 359, 185);
+		contentPane.add(list_2);
 		
 		JLabel lblRestaurant = new JLabel("Restaurant");
 		lblRestaurant.setFont(new Font("Arial", Font.BOLD, 15));
@@ -154,28 +154,17 @@ public class RestaurateurMarkAccept extends JFrame {
 		contentPane.add(lblRestaurantsOrder);
 		
 		JButton btnGoBack = new JButton("Go Back");
-		btnGoBack.setFont(new Font("Arial", Font.PLAIN, 15));
-		btnGoBack.setBounds(447, 675, 144, 34);
+		btnGoBack.setBounds(642, 675, 104, 34);
 		contentPane.add(btnGoBack);
 		
-		JList listRestaurantsOrders = new JList();
-		listRestaurantsOrders.setBorder(new CompoundBorder());
-		listRestaurantsOrders.setBounds(544, 70, 359, 376);
-		contentPane.add(listRestaurantsOrders);
+		JList list_1 = new JList();
+		list_1.setBorder(new CompoundBorder());
+		list_1.setBounds(544, 70, 359, 376);
+		contentPane.add(list_1);
 		
-		JButton btnSelectOrder = new JButton("Select");
-		btnSelectOrder.setBounds(544, 449, 359, 26);
-		contentPane.add(btnSelectOrder);
-		
-		JButton btnAcceptOrder = new JButton("Accept Order");
-		btnAcceptOrder.setFont(new Font("Arial", Font.PLAIN, 15));
-		btnAcceptOrder.setBounds(601, 675, 146, 34);
-		contentPane.add(btnAcceptOrder);
-		
-		JButton btnMarkOrderAsReady = new JButton("Order Ready");
-		btnMarkOrderAsReady.setFont(new Font("Arial", Font.PLAIN, 15));
-		btnMarkOrderAsReady.setBounds(757, 675, 146, 34);
-		contentPane.add(btnMarkOrderAsReady);
+		JButton button = new JButton("Select");
+		button.setBounds(544, 449, 359, 26);
+		contentPane.add(button);
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

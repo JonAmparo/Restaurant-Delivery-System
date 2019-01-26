@@ -10,10 +10,15 @@ import javax.swing.JMenu;
 import java.awt.Font;
 import javax.swing.JMenuItem;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Restaurateur extends JFrame {
 
 	private JPanel contentPane;
+	RestaurateurMarkAccept frameMarkOrderAsReady = new RestaurateurMarkAccept();
+
 
 	/**
 	 * Launch the application.
@@ -65,14 +70,59 @@ public class Restaurateur extends JFrame {
 		menuOrder.add(menuItemAcceptOrder);
 		
 		JMenuItem menuItemOrderReady = new JMenuItem("Order Ready");
+//		menuItemOrderReady.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				dispose();
+//				frameMarkOrderAsReady.setVisible(true);
+//			}
+//		});
 		menuItemOrderReady.setFont(new Font("Arial", Font.PLAIN, 15));
 		menuOrder.add(menuItemOrderReady);
 		
 		contentPane = new JPanel();
 		contentPane.setFont(new Font("Arial", Font.PLAIN, 15));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("View Orders");
+		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 24));
+		lblNewLabel.setBounds(183, 194, 154, 81);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblAcceptmarkOrders = new JLabel("Accept/Mark Orders");
+		lblAcceptmarkOrders.setFont(new Font("Arial", Font.PLAIN, 24));
+		lblAcceptmarkOrders.setBounds(587, 194, 213, 81);
+		contentPane.add(lblAcceptmarkOrders);
+		
+		JButton btnNewButton = new JButton("View Orders");
+//		btnNewButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				RestaurateurAcceptOrder frameAcceptOrder = new RestaurateurAcceptOrder();
+//				dispose();
+//				frameAcceptOrder.setVisible(true);
+//				
+//				
+//			}
+//		});
+		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 15));
+		btnNewButton.setBounds(183, 286, 154, 32);
+		contentPane.add(btnNewButton);
+		
+		JButton btnAcceptmarkOrders = new JButton("Accept/Mark Orders");
+//		btnAcceptmarkOrders.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				
+//				dispose();
+//				frameMarkOrderAsReady.setVisible(true);
+//			}
+//		});
+		btnAcceptmarkOrders.setFont(new Font("Arial", Font.PLAIN, 15));
+		btnAcceptmarkOrders.setBounds(597, 286, 191, 32);
+		contentPane.add(btnAcceptmarkOrders);
+		
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

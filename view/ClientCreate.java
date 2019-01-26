@@ -224,6 +224,9 @@ public class ClientCreate extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("    ");
 		eastPan.add(lblNewLabel_1);
+		
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

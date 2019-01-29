@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import view.ClientOrderFood;
+
 public class ClientModel {
 
 	private ClientDAO clientDAO;
@@ -17,8 +19,8 @@ public class ClientModel {
 		this.createNewClient(new ClientBean("client4", "123", "123", "Ann", "Carol", "123 Sunshine Road",
 				"AnnSam@live.com", "123-456-7894"));
 
-		this.editClient(new ClientBean("client2", "123", "123", "Amparo", "JonathanEdited", "3600 Avenue Du Parc",
-				"JonathanAmparo2@live.com", "301-999-6666"), 2);
+//		this.editClient(new ClientBean("client2", "123", "123", "Amparo", "JonathanEdited", "3600 Avenue Du Parc",
+//				"JonathanAmparo2@live.com", "301-999-6666"), 2);
 	}
 
 	// Clients
@@ -54,5 +56,6 @@ public class ClientModel {
 	public ClientBean getSingleClient(int id) {
 		return clientDAO.getSingleClient(id);
 	}
+
 
 }

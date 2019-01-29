@@ -1,9 +1,11 @@
 package model;
 
 public class RestaurateurBean {
-	private String id;
+	private String id; //id foreign key???
 	private String username;
 	private String restaurantName;
+	//Status
+	//Role
 
 	public RestaurateurBean(String username, String restaurantName) {
 		this.username = username;

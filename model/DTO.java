@@ -4,11 +4,20 @@ import java.util.ArrayList;
 
 /*
  * DTO = Data Transfer Object
+ * 
+ * DTO is an abbreviation for Data Transfer Object, 
+ * so it is used to transfer the data between classes 
+ * and modules of your application. DTO should only 
+ * contain private fields for your data, getters, setters 
+ * and constructors. It is not recommended to add business 
+ * logic methods to such classes, but it is OK to add some util methods.
 */
 public class DTO {
 	private ArrayList<ClientBean> clientList = new ArrayList<>();
 	private ArrayList<RestaurateurBean> restaurateurList = new ArrayList<>();
-	private ArrayList<LoginBean> userList = new ArrayList<>();
+	private ArrayList<UserBean> userList = new ArrayList<>();
+	//private ArrayList<orderBean> orderList = new ArrayList<>();
+	
 
 	// create a variable to get the instance of this class
 	private static DTO current_instance = null;
@@ -34,7 +43,7 @@ public class DTO {
 	/**
 	 * @return the userList
 	 */
-	public ArrayList<LoginBean> getUserList() {
+	public ArrayList<UserBean> getUserList() {
 		return userList;
 	}
 

@@ -3,6 +3,11 @@ package model;
 import java.util.ArrayList;
 /*
  * DAO = Data Access Object
+ * 
+ * DAO is an abbreviation for Data Access Object, 
+ * so it should encapsulate the logic for retrieving, 
+ * saving and updating data in your data storage 
+ * (a database, a file-system, whatever).
 */
 public class ClientDAO {
 

@@ -3,6 +3,7 @@ package control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -34,10 +35,14 @@ public class ClientController {
 	private ClientOrderFood clientOrderFood;
 	private ClientOrderHistory clientOrderHistory;
 	private ClientEditController clientEditController;
+	
+
 
 	private OrderModel orderModel;
 
 	private static Login login;
+	
+//	private Object selectedRestaurant;
 
 	public ClientController(Client client, UserBean user) {
 
@@ -287,7 +292,18 @@ public class ClientController {
 		clientOrderFood = new ClientOrderFood();
 		
 		clientOrderFood.getListRestaurant().addMouseListener(new MouseAdapter() {
-			
+			public void mouseClicked(MouseEvent e) {
+				
+				try {
+//					selectedRestaurant = "";
+//					selectedRestaurant = clientOrderFood.getListRestaurant().getSelectedValue();
+				
+					
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(clientOrderFood, "Please select one item", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				}
+			}
 		});
 		
 	}

@@ -27,8 +27,11 @@ import java.awt.Rectangle;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField text_field1;
-	private JTextField text_field2;
+	
+	private JTextField tfUsername;
+	private JTextField tfPassword;
+
+	private JButton btnConnect, btnCreateNewClient, btnQuit;
 
 	/**
 	 * Launch the application.
@@ -58,67 +61,139 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		JPanel title_panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) title_panel.getLayout();
 		flowLayout.setVgap(15);
 		contentPane.add(title_panel, BorderLayout.NORTH);
-		
+
 		JLabel lblDelivery = new JLabel("Delivery System");
 		lblDelivery.setFont(new Font("Arial", Font.BOLD, 20));
 		title_panel.add(lblDelivery);
-		
+
 		JPanel center_panel = new JPanel();
 		contentPane.add(center_panel, BorderLayout.CENTER);
 		center_panel.setLayout(new BoxLayout(center_panel, BoxLayout.Y_AXIS));
-		
+
 		JPanel info_panel = new JPanel();
 		info_panel.setBorder(new EmptyBorder(15, 15, 15, 15));
 		center_panel.add(info_panel);
 		info_panel.setLayout(new GridLayout(2, 2, 0, 10));
-		
+
 		JLabel lblUsername = new JLabel("Username: ");
 		lblUsername.setFont(new Font("Arial", Font.PLAIN, 18));
 		info_panel.add(lblUsername);
-		
-		text_field1 = new JTextField();
-		text_field1.setFont(new Font("Arial", Font.PLAIN, 16));
-		text_field1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		info_panel.add(text_field1);
-		text_field1.setColumns(10);
-		
+
+		tfUsername = new JTextField();
+		tfUsername.setFont(new Font("Arial", Font.PLAIN, 16));
+		tfUsername.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		info_panel.add(tfUsername);
+		tfUsername.setColumns(10);
+
 		JLabel lblPassword = new JLabel("Password: ");
 		lblPassword.setFont(new Font("Arial", Font.PLAIN, 18));
 		info_panel.add(lblPassword);
-		
-		text_field2 = new JTextField();
-		text_field2.setFont(new Font("Arial", Font.PLAIN, 16));
-		text_field2.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		info_panel.add(text_field2);
-		text_field2.setColumns(10);
-		
+
+		tfPassword = new JTextField();
+		tfPassword.setFont(new Font("Arial", Font.PLAIN, 16));
+		tfPassword.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		info_panel.add(tfPassword);
+		tfPassword.setColumns(10);
+
 		JPanel btn_panel = new JPanel();
 		btn_panel.setBorder(new EmptyBorder(20, 20, 20, 20));
 		center_panel.add(btn_panel);
 		btn_panel.setLayout(new GridLayout(1, 3, 8, 0));
-		
-		JButton btnCreate = new JButton("Connect");
-		btnCreate.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnCreate.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btn_panel.add(btnCreate);
-		
-		JButton btnNewClients = new JButton("New Clients");
-		btnNewClients.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnNewClients.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btn_panel.add(btnNewClients);
-		
-		JButton btnQuit = new JButton("Quit");
+
+		btnConnect = new JButton("Connect");
+		btnConnect.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnConnect.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		btn_panel.add(btnConnect);
+
+		btnCreateNewClient = new JButton("New Clients");
+		btnCreateNewClient.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnCreateNewClient.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		btn_panel.add(btnCreateNewClient);
+
+		btnQuit = new JButton("Quit");
 		btnQuit.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnQuit.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btn_panel.add(btnQuit);
-		
+
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
+	/**
+	 * @return the tfUsername
+	 */
+	public JTextField getTfUsername() {
+		return tfUsername;
+	}
+
+	/**
+	 * @param tfUsername the tfUsername to set
+	 */
+	public void setTfUsername(JTextField tfUsername) {
+		this.tfUsername = tfUsername;
+	}
+
+	/**
+	 * @return the tfPassword
+	 */
+	public JTextField getTfPassword() {
+		return tfPassword;
+	}
+
+	/**
+	 * @param tfPassword the tfPassword to set
+	 */
+	public void setTfPassword(JTextField tfPassword) {
+		this.tfPassword = tfPassword;
+	}
+
+	/**
+	 * @return the btnConnect
+	 */
+	public JButton getBtnConnect() {
+		return btnConnect;
+	}
+
+	/**
+	 * @param btnConnect the btnConnect to set
+	 */
+	public void setBtnConnect(JButton btnConnect) {
+		this.btnConnect = btnConnect;
+	}
+
+	/**
+	 * @return the btnCreateNewClient
+	 */
+	public JButton getBtnCreateNewClient() {
+		return btnCreateNewClient;
+	}
+
+	/**
+	 * @param btnCreateNewClient the btnCreateNewClient to set
+	 */
+	public void setBtnCreateNewClient(JButton btnCreateNewClient) {
+		this.btnCreateNewClient = btnCreateNewClient;
+	}
+
+	/**
+	 * @return the btnQuit
+	 */
+	public JButton getBtnQuit() {
+		return btnQuit;
+	}
+
+	/**
+	 * @param btnQuit the btnQuit to set
+	 */
+	public void setBtnQuit(JButton btnQuit) {
+		this.btnQuit = btnQuit;
+	}
+	
+	
 
 }

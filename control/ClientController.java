@@ -34,7 +34,8 @@ public class ClientController {
 	private ClientDelete clientDelete;
 	private ClientOrderFood clientOrderFood;
 	private ClientOrderHistory clientOrderHistory;
-	private ClientEditController clientEditController;
+
+	private static Client client;
 
 	private OrderModel orderModel;
 
@@ -42,8 +43,8 @@ public class ClientController {
 
 //	private Object selectedRestaurant;
 
-	public ClientController(Client client, UserBean user) {
-
+	public ClientController() {
+		client = new Client();
 		clientModel = new ClientModel(); // This calls the client model
 		// I can use the all the code in the Class and use the arraylists!!
 
@@ -53,9 +54,8 @@ public class ClientController {
 		client.getMenuItemDisconnect().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(client, "Signing you out...", "title", JOptionPane.OK_OPTION);
-				new LoginController(login, user);
-				// login = new Login(); // Opens login view
+				JOptionPane.showMessageDialog(client, "Signing you out...", "title", JOptionPane.INFORMATION_MESSAGE);
+				new LoginController(); // Opens login view
 				client.dispose(); // Closes client view
 			}
 		});
@@ -173,7 +173,7 @@ public class ClientController {
 		clientEdit = new ClientEdit();
 		// clientBean = null; -
 		// Need to find a way to get the client that is signed on!!
-		clientBean = clientModel.getSingleClient(0); // Gets indexed single client
+		clientBean = clientModel.getSingleClient(2); // Gets indexed single client
 
 		// Goes to ClientEditView, gets textfield, sets text to clients(bean) settings!
 		clientEdit.getTfUsername().setText(clientBean.getUsername());
@@ -219,8 +219,8 @@ public class ClientController {
 
 							JOptionPane.showMessageDialog(clientEdit, "Your account has been edited.",
 									"Edit Client Account", JOptionPane.INFORMATION_MESSAGE);
-							//ClientController.clientView.setVisible(true);
-							 clientView = new Client();
+							// ClientController.clientView.setVisible(true);
+							clientView = new Client();
 							clientEdit.dispose();
 
 						} else {
@@ -311,11 +311,11 @@ public class ClientController {
 	}
 
 	public static void main(String[] args) {
-		Client client = new Client();
-		ClientModel clientModel = new ClientModel();
-		UserBean user = new UserBean(null, null, null);
+//		Client client = new Client();
+//		ClientModel clientModel = new ClientModel();
+//		UserBean user = new UserBean(null, null, null);
 
-		new ClientController(client, user);
+		new ClientController();
 
 	}
 

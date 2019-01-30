@@ -7,51 +7,43 @@ import javax.swing.JOptionPane;
 
 import model.ClientBean;
 import model.ClientModel;
-import model.RestaurateurModel;
-import model.UserBean;
 import view.Admin;
-import view.Client;
 import view.ClientCreate;
 import view.Login;
 
 public class LoginController {
 
-	public ClientBean clientBean;
-	//private Client client;
-
-	//private Login login;
-	private ClientModel clientModel;
-	//private RestaurateurModel restaurateurModel;
-	//private LoginController loginController;
-
+	private Login login;
 	private Admin admin;
-	//private UserBean user = new UserBean(null, null, null);
-	Boolean bool = false;
 
+	private ClientModel clientModel;
 	private ClientCreate clientCreate;
 
-	public LoginController(Login login, UserBean user) {
-		
-		
+	public LoginController() {
+		login = new Login(); // Opens login view
+		clientModel = new ClientModel(); // Opens Client Database (Model -> DAO -> DTO -> Bean) then back
 
-		clientModel = new ClientModel();
+		System.out.println("This is the new login controller"); // Testing ~ can delete later
 
+		// ================== BUTTON CONNECT (To AdminController) ================== //
 		login.getBtnConnect().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new AdminController(); // Works to call - need to delete parameters to get to working!!
-//				admin = new Admin();
-//				login.dispose();
+				new AdminController(); // Calls AdminController Class
+				
+				login.dispose(); // Disposes LoginController CLass
 			}
 		});
-		// ================== Button Create New Client ================== //
+
+		// ================== BUTTON CREATE NEW CLIENT ================== //
 		login.getBtnCreateNewClient().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				login.setVisible(false);
-				clientCreate = new ClientCreate();
+				//login.dispose();
+				login.setVisible(false); // hides login view
+				clientCreate = new ClientCreate(); // opens clientCreate view
 
-				// BTN SAVE
+				// BTN SAVE - Checks to see if all textfields are not blank.
 				clientCreate.getBtnSave().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (!clientCreate.getTfUsername().getText().equals("")
@@ -74,6 +66,7 @@ public class LoginController {
 
 							// sysouts to check if it worked!!! IT DOES WORK :D
 							System.out.println(clientModel.getAllClients());
+							//new LoginController();
 							login.setVisible(true);
 							clientCreate.setVisible(false);
 
@@ -83,23 +76,23 @@ public class LoginController {
 						}
 					}
 				});
-				
+
 				// BTN RETURN
 				clientCreate.getBtnReturn().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						login.setVisible(true);
 						clientCreate.setVisible(false);
-						
+
 					}
 				});
-				
+
 				// BTN VERIFY
 				clientCreate.getBtnVerify().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+
 					}
 				});
-				
+
 				// BTN CANCEL
 				clientCreate.getBtnCancel().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -111,7 +104,7 @@ public class LoginController {
 						clientCreate.getTfAddress().setText("");
 						clientCreate.getTfEmail().setText("");
 						clientCreate.getTfPhone().setText("");
-						
+
 					}
 				});
 			}
@@ -120,26 +113,14 @@ public class LoginController {
 		login.getBtnQuit().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				login.dispose();
+				new LoginController();
+				System.out.println("Thanks for using my program.  Goodbye!");
 			}
 		});
 	}
 
-//	private void connectFunction() {
-//		admin = new Admin();
-//	}
-
 	public static void main(String[] args) {
-//		Login login = new Login();
-//		RestaurateurModel restaurateurModel = new RestaurateurModel();
-//
-		Login login = new Login();
-		UserBean user = new UserBean(null, null, null);
-//		Client client = new Client();
-//		ClientModel clientModel = new ClientModel();
-
-		new LoginController(login, user);
-
+		new LoginController();
 	}
 
 }

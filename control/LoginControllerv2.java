@@ -7,34 +7,20 @@ import javax.swing.JOptionPane;
 
 import model.ClientBean;
 import model.ClientModel;
-import model.RestaurateurModel;
-import model.UserBean;
-import view.Admin;
-import view.Client;
 import view.ClientCreate;
 import view.Login;
 
-public class LoginController {
+public class LoginControllerv2 {
 
-	public ClientBean clientBean;
-	//private Client client;
-
-	//private Login login;
+	private Login login;
 	private ClientModel clientModel;
-	//private RestaurateurModel restaurateurModel;
-	//private LoginController loginController;
-
-	private Admin admin;
-	//private UserBean user = new UserBean(null, null, null);
-	Boolean bool = false;
-
 	private ClientCreate clientCreate;
 
-	public LoginController(Login login, UserBean user) {
-		
-		
-
+	public LoginControllerv2() {
+		login = new Login();
 		clientModel = new ClientModel();
+
+		System.out.println("This is the new login controller");
 
 		login.getBtnConnect().addActionListener(new ActionListener() {
 			@Override
@@ -44,6 +30,7 @@ public class LoginController {
 //				login.dispose();
 			}
 		});
+
 		// ================== Button Create New Client ================== //
 		login.getBtnCreateNewClient().addActionListener(new ActionListener() {
 			@Override
@@ -83,23 +70,23 @@ public class LoginController {
 						}
 					}
 				});
-				
+
 				// BTN RETURN
 				clientCreate.getBtnReturn().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						login.setVisible(true);
 						clientCreate.setVisible(false);
-						
+
 					}
 				});
-				
+
 				// BTN VERIFY
 				clientCreate.getBtnVerify().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+
 					}
 				});
-				
+
 				// BTN CANCEL
 				clientCreate.getBtnCancel().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -111,7 +98,7 @@ public class LoginController {
 						clientCreate.getTfAddress().setText("");
 						clientCreate.getTfEmail().setText("");
 						clientCreate.getTfPhone().setText("");
-						
+
 					}
 				});
 			}
@@ -121,25 +108,13 @@ public class LoginController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				login.dispose();
+				System.out.println("Thanks for using my program.  Goodbye!");
 			}
 		});
 	}
 
-//	private void connectFunction() {
-//		admin = new Admin();
-//	}
-
 	public static void main(String[] args) {
-//		Login login = new Login();
-//		RestaurateurModel restaurateurModel = new RestaurateurModel();
-//
-		Login login = new Login();
-		UserBean user = new UserBean(null, null, null);
-//		Client client = new Client();
-//		ClientModel clientModel = new ClientModel();
-
-		new LoginController(login, user);
-
+		new LoginControllerv2();
 	}
 
 }

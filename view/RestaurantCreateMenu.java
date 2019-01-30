@@ -286,6 +286,10 @@ public class RestaurantCreateMenu extends JFrame {
 		arrow_lbl.setForeground(Color.LIGHT_GRAY);
 		arrow_lbl.setFont(new Font("Courier New", Font.BOLD, 50));
 		middleArrow_panel.add(arrow_lbl);
+		
+
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

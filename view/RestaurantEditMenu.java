@@ -299,6 +299,10 @@ public class RestaurantEditMenu extends JFrame {
 		label.setForeground(Color.LIGHT_GRAY);
 		label.setFont(new Font("Courier New", Font.BOLD, 50));
 		middleArrow_panel.add(label);
+		
+
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

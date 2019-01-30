@@ -17,15 +17,15 @@ import view.Login;
 public class LoginController {
 
 	public ClientBean clientBean;
-	private Client client;
+	//private Client client;
 
-	private Login login;
+	//private Login login;
 	private ClientModel clientModel;
-	private RestaurateurModel restaurateurModel;
-	private LoginController loginController;
+	//private RestaurateurModel restaurateurModel;
+	//private LoginController loginController;
 
 	private Admin admin;
-	private UserBean user = new UserBean(null, null, null);
+	//private UserBean user = new UserBean(null, null, null);
 	Boolean bool = false;
 
 	private ClientCreate clientCreate;
@@ -37,7 +37,7 @@ public class LoginController {
 		login.getBtnConnect().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				connectFunction();
+				admin = new Admin();
 				login.dispose();
 			}
 		});
@@ -122,9 +122,9 @@ public class LoginController {
 		});
 	}
 
-	private void connectFunction() {
-		admin = new Admin();
-	}
+//	private void connectFunction() {
+//		admin = new Admin();
+//	}
 
 	public static void main(String[] args) {
 //		Login login = new Login();

@@ -26,7 +26,7 @@ public class ClientController {
 
 	public ClientBean clientBean;
 
-	private Client clientView;
+	private static Client clientView;
 	private ClientModel clientModel;
 
 	private ClientCreate clientCreate;
@@ -35,13 +35,11 @@ public class ClientController {
 	private ClientOrderFood clientOrderFood;
 	private ClientOrderHistory clientOrderHistory;
 	private ClientEditController clientEditController;
-	
-
 
 	private OrderModel orderModel;
 
-	private static Login login;
-	
+	private Login login;
+
 //	private Object selectedRestaurant;
 
 	public ClientController(Client client, UserBean user) {
@@ -56,7 +54,8 @@ public class ClientController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(client, "Signing you out...", "title", JOptionPane.OK_OPTION);
-				login = new Login(); // Opens login view
+				new LoginController(login, user);
+				// login = new Login(); // Opens login view
 				client.dispose(); // Closes client view
 			}
 		});
@@ -85,7 +84,7 @@ public class ClientController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				clientEditFunction();
-				client.dispose();
+				client.setVisible(false);
 			}
 		});
 
@@ -165,7 +164,7 @@ public class ClientController {
 		});
 
 	}
-	
+
 //	private void clientCreateFunction() {
 //		
 //	}
@@ -220,8 +219,8 @@ public class ClientController {
 
 							JOptionPane.showMessageDialog(clientEdit, "Your account has been edited.",
 									"Edit Client Account", JOptionPane.INFORMATION_MESSAGE);
-
-							clientView = new Client();
+							//ClientController.clientView.setVisible(true);
+							 clientView = new Client();
 							clientEdit.dispose();
 
 						} else {
@@ -290,22 +289,21 @@ public class ClientController {
 
 	private void clientOrderFoodFunction() {
 		clientOrderFood = new ClientOrderFood();
-		
+
 		clientOrderFood.getListRestaurant().addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				
+
 				try {
 //					selectedRestaurant = "";
 //					selectedRestaurant = clientOrderFood.getListRestaurant().getSelectedValue();
-				
-					
+
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(clientOrderFood, "Please select one item", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
-		
+
 	}
 
 	private void clientOrderHistoryFunction() {

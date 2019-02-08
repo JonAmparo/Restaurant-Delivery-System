@@ -1,4 +1,6 @@
-package model;
+package model_draft;
+
+import java.util.ArrayList;
 
 public class ClientBean {
 	private String id;
@@ -10,6 +12,7 @@ public class ClientBean {
 	private String address;
 	private String email;
 	private String phone;
+	private ArrayList<HistoryBean> historyBean;
 
 	public ClientBean(String username, String password, String confirmPassword, String lastName, String firstName,
 			String address, String email, String phone) {
@@ -39,6 +42,22 @@ public class ClientBean {
 	public String toString() {
 		return this.id + " : " + this.lastName + " " + this.firstName + ", " + this.address + ", " + this.email + ", "
 				+ this.phone;
+	}
+	
+	
+
+	/**
+	 * @return the historyBean
+	 */
+	public ArrayList<HistoryBean> getHistoryBean() {
+		return historyBean;
+	}
+
+	/**
+	 * @param historyBean the historyBean to set
+	 */
+	public void setHistoryBean(ArrayList<HistoryBean> historyBean) {
+		this.historyBean = historyBean;
 	}
 
 	/**
@@ -166,5 +185,5 @@ public class ClientBean {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
+	
 }

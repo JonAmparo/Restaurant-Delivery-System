@@ -1,24 +1,22 @@
 package model_draft;
 
-import java.sql.Date;
-
-public class OrderBean {
-
-	private int id;
+public class RestaurantMenuBean {
+	
+	
 	private String item;
 	private int price;
-	private int quantity;
-
-	public OrderBean(String item, int price, int quantity) {
+	private int id;
+	
+	public RestaurantMenuBean(String item, int price) {		
 		this.item = item;
 		this.price = price;
-		this.quantity = quantity;
-		this.id = DTO.getInstance().getOrderList().size();
+		this.id = DTO.getInstance().getMenuList().size();		
+	}
+	
+	public String toString() {
+		return "\nItem: " + this.item + " - Price: " + this.price;
 	}
 
-	public String toString() {
-		return "\nItem: " + this.item + " - " + this.price + ".00 $" + " | Quantity: " + this.quantity + " x";
-	}
 
 	/**
 	 * @return the item
@@ -49,20 +47,6 @@ public class OrderBean {
 	}
 
 	/**
-	 * @return the quantity
-	 */
-	public int getQuantity() {
-		return quantity;
-	}
-
-	/**
-	 * @param quantity the quantity to set
-	 */
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	/**
 	 * @return the id
 	 */
 	public int getId() {
@@ -75,5 +59,10 @@ public class OrderBean {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
+	
+	
+	
 
 }

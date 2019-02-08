@@ -1,6 +1,8 @@
-package model;
+package model_draft;
 
 import java.util.ArrayList;
+
+
 /*
  * DAO = Data Access Object
  * 
@@ -13,7 +15,7 @@ public class ClientDAO {
 
 	// Clients
 	public void createNewClient(ClientBean client) {
-		int id = DTO.getInstance().getClientList().size();
+		int id = DTO.getInstance().getInstance().getClientList().size();
 		client.setId(id + "");
 		DTO.getInstance().getClientList().add(client);
 	}

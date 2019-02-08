@@ -1,4 +1,4 @@
-package model;
+package model_draft;
 
 public class OrderStatus {
 	public final static String Pending = "Pending";
@@ -6,6 +6,5 @@ public class OrderStatus {
 	public final static String Ready = "Ready";
 	public final static String DeliveryManAccepted = "DeliveryManAccepted";
 	public final static String Delivered = "Delivered";
-	
-	//??
+	public final static String Consultation = "Consultation";
 }

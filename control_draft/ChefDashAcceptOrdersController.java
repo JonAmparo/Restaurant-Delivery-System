@@ -46,7 +46,7 @@ public class ChefDashAcceptOrdersController implements ActionListener {
 				model.addElement(item);
 			}
 			chefAcceptView.getListRestaurantsOrders().setModel(model);
-			chefAcceptView.getListRestaurantsOrders().setSelectedIndex(0);
+			//chefAcceptView.getListRestaurantsOrders().setSelectedIndex(0);
 		}
 
 		chefAcceptView.getListRestaurantsOrders().addListSelectionListener(new ListSelectionListener() {

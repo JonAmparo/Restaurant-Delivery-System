@@ -9,7 +9,7 @@ import model_draft.HistoryModel;
 import view_draft.ChefAcceptView;
 import view_draft.ChefView;
 
-public class ChefAcceptOrderAcceptController  implements ActionListener {
+public class ChefAcceptOrderAcceptController implements ActionListener {
 
 	private HistoryModel historyModel;
 	private ChefView chefView;
@@ -29,16 +29,14 @@ public class ChefAcceptOrderAcceptController  implements ActionListener {
 
 		try {
 			String orderNum = chefAcceptView.getListRestaurantsOrders().getSelectedValue().toString();
-			JOptionPane.showMessageDialog(chefAcceptView,
-					"The order is accepted!", "Accepted!",
+			JOptionPane.showMessageDialog(chefAcceptView, "The order is accepted!", "Accepted!",
 					JOptionPane.INFORMATION_MESSAGE);
 			
-			
+
 //			chefAcceptView.setVisible(false);
 //			chefView.setVisible(true);
-		}catch (Exception ex) {
-			JOptionPane.showMessageDialog(chefAcceptView, "No item ......",
-					"Not item!", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(chefAcceptView, "No item ......", "Not item!", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}

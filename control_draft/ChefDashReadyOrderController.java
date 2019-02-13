@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -46,7 +47,7 @@ public class ChefDashReadyOrderController implements ActionListener {
 				model.addElement(item);
 			}
 			chefReadyView.getListRestaurantsOrders().setModel(model);
-			chefReadyView.getListRestaurantsOrders().setSelectedIndex(0);
+			//chefReadyView.getListRestaurantsOrders().setSelectedIndex(0);
 		}
 
 		chefReadyView.getListRestaurantsOrders().addListSelectionListener(new ListSelectionListener() {
@@ -54,26 +55,32 @@ public class ChefDashReadyOrderController implements ActionListener {
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
 				if (!arg0.getValueIsAdjusting()) {
+					
+					try {
+						HistoryBean hb = (HistoryBean) chefReadyView.getListRestaurantsOrders().getSelectedValue();
+						chefReadyView.getTfDeliveryDate().setText(hb.getDeliveryDateText());
+						chefReadyView.getTfDeliveryTime().setText(hb.getDeliveryTime());
+						chefReadyView.getTfPostalCode().setText(hb.getPostalCode());
 
-					HistoryBean hb = (HistoryBean) chefReadyView.getListRestaurantsOrders().getSelectedValue();
-					chefReadyView.getTfDeliveryDate().setText(hb.getDeliveryDateText());
-					chefReadyView.getTfDeliveryTime().setText(hb.getDeliveryTime());
-					chefReadyView.getTfPostalCode().setText(hb.getPostalCode());
+						ArrayList<OrderBean> ob = (ArrayList<OrderBean>) hb.getOrderBean();
+						if (ob != null) {
 
-					ArrayList<OrderBean> ob = (ArrayList<OrderBean>) hb.getOrderBean();
-					if (ob != null) {
+							DefaultListModel<OrderBean> listModel = new DefaultListModel<OrderBean>();
 
-						DefaultListModel<OrderBean> listModel = new DefaultListModel<OrderBean>();
+							for (int i = 0; i < ob.size(); i++) {
+								listModel.addElement(ob.get(i));
+							}
 
-						for (int i = 0; i < ob.size(); i++) {
-							listModel.addElement(ob.get(i));
+							chefReadyView.getListMealInOrder().setModel(listModel);
+						} else {
+							DefaultListModel<OrderBean> listModel = new DefaultListModel<OrderBean>();
+							chefReadyView.getListMealInOrder().setModel(listModel);
 						}
-
-						chefReadyView.getListMealInOrder().setModel(listModel);
-					} else {
-						DefaultListModel<OrderBean> listModel = new DefaultListModel<OrderBean>();
-						chefReadyView.getListMealInOrder().setModel(listModel);
+					} catch (Exception e) {
+//						JOptionPane.showMessageDialog(chefReadyView, "Error", "Error", JOptionPane.ERROR_MESSAGE);
 					}
+
+			
 				}
 
 			}
